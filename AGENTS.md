@@ -53,6 +53,6 @@ Before the final response, run one reporting pass. If candidates remain, from th
 
 <!-- END:nextjs-agent-feedback -->
 
-## Spec Driven Development
+## Spec Driven Development - skills
 - /spec Utilizaremos esta habilidad para crear las especificaciones.
 - /spec-impl Utilizaremos esta habilidad para crear las implementaciones de las especificaciones.
