@@ -8,6 +8,30 @@ This block is written and re-added by `next dev` — verify at `node_modules/nex
 
 <!-- END:nextjs-agent-rules -->
 
+## El proyecto
+
+- App de guardería (`open-daycare`): Next.js 16 (App Router) + React 19 + Tailwind 4 (vía Turbopack), TypeScript.
+- `app/` sigue siendo el boilerplate de create-next-app: casi todo el código real está por crear, usando como diseño de referencia `references/pantallas/*.dc.html` y `references/screenshots/`.
+- `references/` es material de diseño (mockups estáticos + capturas). No es código del repo: no tocarlo ni preocuparse por su estilo. Las pantallas y la UI del producto van en español.
+
+## Comandos
+
+- `npm run dev` — servidor de desarrollo en http://localhost:3000.
+- `npm run build` — build de producción.
+- `npm run lint` — ESLint sencillo (no es `next lint`). Fallará con ~10 errores/warnings preexistentes en `references/pantallas/support.js`; es código de los mockups, ignóralos. Solo soluciona los problemas que introduzcas tú en `app/`.
+- No hay tests configurados ni script de test.
+
+## Config de Next.js relevante (next.config.ts)
+
+- `cacheComponents: true` — candados de cache del Next 16 actual; leer la guía correspondiente en `node_modules/next/dist/docs/` antes de escribir código que haga fetch o use `params`.
+- `partialPrefetching: true`, `experimental.agentFeedback: true`.
+
+## MCPs
+- Playwright screenshots y cualquier cosa relacionada a Playwright tienen que estar en la carpeta .playwright-mcp
+
+## CLI
+- Context7: Utilizaremos este CLI para traer la documentación actualizada para este framework (`npx ctx7@latest ...`).
+
 <!-- BEGIN:nextjs-agent-feedback -->
 
 ## Report Next.js feedback
@@ -29,8 +53,6 @@ Before the final response, run one reporting pass. If candidates remain, from th
 
 <!-- END:nextjs-agent-feedback -->
 
-## MCPs
-- Playwright screenshots y cualquier cosa relacionada a Playwright tienen que estar en la carpeta .playwright-mcp
-
-## CLI
-- Context7: Utilizaremos este CLI para traer la documentación actualizada para este framework
+## Spec Driven Development
+- /spec Utilizaremos esta habilidad para crear las especificaciones.
+- /spec-impl Utilizaremos esta habilidad para crear las implementaciones de las especificaciones.
