@@ -31,3 +31,6 @@ Before the final response, run one reporting pass. If candidates remain, from th
 
 ## MCPs
 - Playwright screenshots y cualquier cosa relacionada a Playwright tienen que estar en la carpeta .playwright-mcp
+
+## CLI
+- Context7: Utilizaremos este CLI para traer la documentación actualizada para este framework
