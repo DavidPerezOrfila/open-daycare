@@ -1,0 +1,10 @@
+{
+  "config": {
+    // Specs y skills usan tablas, URLs y frases largas: no imponemos wrap a 80
+    "MD013": false,
+    // Los skills pueden repetir títulos en secciones distintas
+    "MD024": { "siblings_only": true }
+  },
+  "globs": ["**/*.md"],
+  "ignores": ["node_modules/**", "references/**", ".next/**", ".playwright-mcp/**"]
+}
