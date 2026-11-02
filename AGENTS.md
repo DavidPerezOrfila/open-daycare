@@ -1,3 +1,5 @@
+# AGENTS.md
+
 <!-- BEGIN:nextjs-agent-rules -->
 
 ## This is NOT the Next.js you know
@@ -8,29 +10,31 @@ This block is written and re-added by `next dev` — verify at `node_modules/nex
 
 <!-- END:nextjs-agent-rules -->
 
-## El proyecto
+## Proyecto
 
-- App de guardería (`open-daycare`): Next.js 16 (App Router) + React 19 + Tailwind 4 (vía Turbopack), TypeScript.
-- `app/` sigue siendo el boilerplate de create-next-app: casi todo el código real está por crear, usando como diseño de referencia `references/pantallas/*.dc.html` y `references/screenshots/`.
-- `references/` es material de diseño (mockups estáticos + capturas). No es código del repo: no tocarlo ni preocuparse por su estilo. Las pantallas y la UI del producto van en español.
+`open-daycare`: app de guardería con Next.js 16 (App Router), React 19, Tailwind 4 (Turbopack) y TypeScript.
+
+- Rutas en `app/`; datos mock tipados en `app/_data/`; componentes en `components/{layout,feed,ui}/`.
+- Especificaciones en `specs/`. Flujo: `/spec` para escribirla, aprobarla cambiando `Status` a `Approved`, `/spec-impl` para implementarla.
+- `references/` son mockups de diseño: no se tocan ni se lintean. La UI va en español.
+- `next.config.ts` activa `cacheComponents`, `partialPrefetching` y `experimental.agentFeedback`. Antes de escribir código con `fetch`, `params` o caché, leer la guía en `node_modules/next/dist/docs/`.
 
 ## Comandos
 
-- `npm run dev` — servidor de desarrollo en http://localhost:3000.
-- `npm run build` — build de producción.
-- `npm run lint` — ESLint sencillo (no es `next lint`). Fallará con ~10 errores/warnings preexistentes en `references/pantallas/support.js`; es código de los mockups, ignóralos. Solo soluciona los problemas que introduzcas tú en `app/`.
-- No hay tests configurados ni script de test.
+| Comando | Qué hace |
+| --- | --- |
+| `npm run dev` | Servidor de desarrollo en <http://localhost:3000>. |
+| `npm run build` | Build de producción. |
+| `npm run lint` | ESLint (ignora `references/`). Debe quedar en 0 problemas. |
+| `npm run lint:md` | markdownlint-cli2 sobre todos los `.md`. |
+| `npm run lint:all` | ESLint + markdownlint. Gate obligatorio al terminar la implementación. |
 
-## Config de Next.js relevante (next.config.ts)
+Sin tests configurados. Los linters se ejecutan al final, nunca por edición.
 
-- `cacheComponents: true` — candados de cache del Next 16 actual; leer la guía correspondiente en `node_modules/next/dist/docs/` antes de escribir código que haga fetch o use `params`.
-- `partialPrefetching: true`, `experimental.agentFeedback: true`.
+## Herramientas
 
-## MCPs
-- Playwright screenshots y cualquier cosa relacionada a Playwright tienen que estar en la carpeta .playwright-mcp
-
-## CLI
-- Context7: Utilizaremos este CLI para traer la documentación actualizada para este framework (`npx ctx7@latest ...`).
+- Playwright: capturas y artefactos siempre en `.playwright-mcp/`.
+- Context7 para documentación de librerías: `npx ctx7@latest library|docs`.
 
 <!-- BEGIN:nextjs-agent-feedback -->
 
@@ -52,7 +56,3 @@ Retain qualifying friction even if it is later fixed or worked around; record th
 Before the final response, run one reporting pass. If candidates remain, from this file's directory run `npx --no-install next internal agent-feedback-instructions` once without piping or truncating its output. Follow its output or error guidance. If a network sandbox blocks it, retry with network access; if it still returns no output, continue normally.
 
 <!-- END:nextjs-agent-feedback -->
-
-## Spec Driven Development - skills
-- /spec Utilizaremos esta habilidad para crear las especificaciones.
-- /spec-impl Utilizaremos esta habilidad para crear las implementaciones de las especificaciones.
