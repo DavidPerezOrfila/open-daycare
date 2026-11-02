@@ -16,7 +16,6 @@
     "react-dom": "19.3.0"
   },
   "devDependencies": {
-    "@opencode/plugin": "^2.2.5",
     "@tailwindcss/turbopack": "^4",
     "@types/node": "^20",
     "@types/react": "^19",
@@ -26,5 +25,10 @@
     "markdownlint-cli2": "^0.24.0",
     "tailwindcss": "^4",
     "typescript": "^5"
+  },
+  "overrides": {
+    "katex": "^0.19.1",
+    "minimatch": "^11.0.4",
+    "re2js": "^2.9.1"
   }
 }
